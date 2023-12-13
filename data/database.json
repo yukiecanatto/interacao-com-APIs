@@ -1,0 +1,65 @@
+{
+  "produtos": [
+    {
+      "id": 1,
+      "nome": "Retrovisor"
+    },
+    {
+      "id": 2,
+      "nome": "Calota"
+    },
+    {
+      "id": 3,
+      "nome": "Volante"
+    },
+    {
+      "id": 4,
+      "nome": "Volante grande",
+      "tipo": "Caminhão"
+    }
+  ],
+  "clientes": [
+    {
+      "id": 1,
+      "username": "joaomarcos",
+      "senha": "123456"
+    },
+    {
+      "username": "marcosvianna",
+      "senha": "123456",
+      "id": 2
+    },
+    {
+      "username": "kawan",
+      "senha": "123456",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "username": "lucas ",
+      "senha": "123456"
+    }
+  ],
+  "categorias": [
+    {
+        "id":1,
+        "descricao": "basico"
+    },
+    {
+        "id":2,
+        "descricao": "Itermediário"
+    },
+    {
+        "id":3,
+        "descricao": "Avançado"
+    }
+  ],
+  
+    "carrinhos": [
+    {
+      "id": 1,
+      "data": "2023-12-13"
+    }
+    ]
+
+}
