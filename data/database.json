@@ -2,20 +2,38 @@
   "produtos": [
     {
       "id": 1,
-      "nome": "Retrovisor"
+      "nome": "Retrovisor",
+      "tipo": "Carroceria"
     },
     {
       "id": 2,
-      "nome": "Calota"
+      "nome": "Calota",
+      "tipo": "Carroceria"
     },
     {
       "id": 3,
-      "nome": "Volante"
+      "nome": "Volante",
+      "tipo": "Controle"
     },
     {
       "id": 4,
       "nome": "Volante grande",
-      "tipo": "Caminhão"
+      "tipo": "Controle"
+    },
+    {
+      "id": 5,
+      "nome": "Pastilha de freio",
+      "tipo": "Essencial"
+    },
+    {
+      "id": 6,
+      "nome": "Airbag",
+      "tipo": "Essencial"
+    },
+    {
+      "id": 7,
+      "nome": "Alavanca de cambio",
+      "tipo": "Controle"
     }
   ],
   "clientes": [
@@ -42,24 +60,22 @@
   ],
   "categorias": [
     {
-        "id":1,
-        "descricao": "basico"
+      "id": 1,
+      "descricao": "basico"
     },
     {
-        "id":2,
-        "descricao": "Itermediário"
+      "id": 2,
+      "descricao": "Itermediário"
     },
     {
-        "id":3,
-        "descricao": "Avançado"
+      "id": 3,
+      "descricao": "Avançado"
     }
   ],
-  
-    "carrinhos": [
+  "carrinhos": [
     {
       "id": 1,
       "data": "2023-12-13"
     }
-    ]
-
+  ]
 }
