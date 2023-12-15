@@ -9,8 +9,6 @@
     <h1>Create com Post</h1>
     <a href="./index.html">← Home</a>
 
-    <button type="button" id="carregar">Carregar Produtos</button>
-
     <form action="" method="post">
 
         <div class="controle-form">
@@ -40,6 +38,8 @@
 
     <script>
 
+        buscarProdutos();
+
         document.querySelector("#cadastrar").addEventListener("click", () => {
             
             const dadosProduto = {
@@ -58,13 +58,15 @@
             }).then(resposta => {
                 if(resposta.ok) {
                     window.alert("Produto cadastrado!");
+                    buscarProdutos();
+
                 } else {
                     window.alert("Erro!");
                 }
             })
         })
 
-        document.querySelector("#carregar").addEventListener("click", () => {
+        function buscarProdutos () {
 
             fetch("http://[::1]:3000/produtos", {
                 method: "GET",
@@ -89,7 +91,8 @@
 
             })
 
-        })
+        }
+
     </script>
     
 </body>

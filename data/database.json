@@ -39,6 +39,41 @@
       "id": 8,
       "nome": "Capô",
       "tipo": "Carroceria"
+    },
+    {
+      "id": 9,
+      "nome": "Roda",
+      "tipo": "Controle"
+    },
+    {
+      "id": 10,
+      "nome": "Escapamento",
+      "tipo": "Carroceria"
+    },
+    {
+      "id": 11,
+      "nome": "Radio",
+      "tipo": "Opcional"
+    },
+    {
+      "id": 12,
+      "nome": "Luz de freio",
+      "tipo": "Controle"
+    },
+    {
+      "id": 13,
+      "nome": "Filtro",
+      "tipo": "Carroceria"
+    },
+    {
+      "id": 14,
+      "nome": "Filtro grande",
+      "tipo": "Carroceria"
+    },
+    {
+      "id": 15,
+      "nome": "Capô 2",
+      "tipo": "Carroceria"
     }
   ],
   "clientes": [
