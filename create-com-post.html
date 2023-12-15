@@ -12,9 +12,26 @@
     <button type="button" id="carregar">Carregar Produtos</button>
 
     <form action="" method="post">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome">
-        <button type="button">Enviar</button>
+
+        <div class="controle-form">
+            <label for="idProduto">ID do produto:</label>
+            <input type="number" id="idProduto" name="idProduto" min="1" disabled>
+        </div>
+
+        <div class="controle-form">
+            <label for="nomeProduto">Nome:</label>
+            <input type="text" id="nomeProduto" name="nomeProduto">
+        </div>
+        
+        <div class="controle-form">
+            <label for="tipoProduto">Tipo de produto:</label>
+            <select name="tipoProduto" id="tipoProduto">
+                <option value="Carroceria">Carroceria</option>
+                <option value="Controle">Controle</option>
+                <option value="Opcional" selected>Opcional</option>
+            </select>
+        </div>
+        <button type="button" id="cadastrar">Cadastrar</button>
     </form>
 
     <div id="produtos">
@@ -22,9 +39,34 @@
     </div>
 
     <script>
+
+        document.querySelector("#cadastrar").addEventListener("click", () => {
+            
+            const dadosProduto = {
+                "id": null,
+                "nome": document.querySelector("#nomeProduto").value,
+                "tipo": document.querySelector("#tipoProduto").value
+
+            }
+            
+            fetch("http://[::1]:3000/produtos", {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify(dadosProduto)
+            }).then(resposta => {
+                if(resposta.ok) {
+                    window.alert("Produto cadastrado!");
+                } else {
+                    window.alert("Erro!");
+                }
+            })
+        })
+
         document.querySelector("#carregar").addEventListener("click", () => {
 
-            fetch("https://stunning-spork-75qvwv7p4pjcprq9-3000.app.github.dev/produtos", {
+            fetch("http://[::1]:3000/produtos", {
                 method: "GET",
                 headers: {
                     "Content-type": "application/json"

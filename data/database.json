@@ -34,6 +34,11 @@
       "id": 7,
       "nome": "Alavanca de cambio",
       "tipo": "Controle"
+    },
+    {
+      "id": 8,
+      "nome": "Capô",
+      "tipo": "Carroceria"
     }
   ],
   "clientes": [
