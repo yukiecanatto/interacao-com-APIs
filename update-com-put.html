@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interação com APIs | Create com Post</title>
+    <title>Interação com APIs | Update com PUT</title>
 </head>
 <body>
-    <h1>Create com POST</h1>
+    <h1>Update com PUT</h1>
     <a href="./index.html">← Home</a>
 
     <form action="" method="post">
 
         <div class="controle-form">
             <label for="idProduto">ID do produto:</label>
-            <input type="number" id="idProduto" name="idProduto" min="1" disabled>
+            <input type="number" id="idProduto" name="idProduto" min="1" required>
         </div>
 
         <div class="controle-form">
             <label for="nomeProduto">Nome:</label>
-            <input type="text" id="nomeProduto" name="nomeProduto">
+            <input type="text" id="nomeProduto" name="nomeProduto" required>
         </div>
         
         <div class="controle-form">
@@ -26,21 +26,21 @@
             <select name="tipoProduto" id="tipoProduto">
                 <option value="Carroceria">Carroceria</option>
                 <option value="Controle">Controle</option>
+                <option value="Segurança">Segurança</option>
+                <option value="PowerTrain">PowerTrain</option>
                 <option value="Opcional" selected>Opcional</option>
             </select>
         </div>
-        <button type="button" id="cadastrar">Cadastrar</button>
+        <button type="button" id="atualizar">Atualizar</button>
     </form>
 
-    <div id="produtos">
-        <h2>Produtos</h2>
-    </div>
+    <div id="produtos"></div>
 
     <script>
 
         buscarProdutos();
 
-        document.querySelector("#cadastrar").addEventListener("click", () => {
+        document.querySelector("#atualizar").addEventListener("click", () => {
             
             const dadosProduto = {
                 "id": null,
@@ -48,16 +48,18 @@
                 "tipo": document.querySelector("#tipoProduto").value
 
             }
+
+            const idProduto = document.querySelector("#idProduto").value;
             
-            fetch("http://[::1]:3000/produtos", {
-                method: "POST",
+            fetch(`http://[::1]:3000/produtos/${idProduto}`, {
+                method: "PUT",
                 headers: {
                     "Content-type": "application/json"
                 },
                 body: JSON.stringify(dadosProduto)
             }).then(resposta => {
                 if(resposta.ok) {
-                    window.alert("Produto cadastrado!");
+                    window.alert("Produto atualizado!");
                     buscarProdutos();
 
                 } else {

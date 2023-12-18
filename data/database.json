@@ -1,16 +1,6 @@
 {
   "produtos": [
     {
-      "id": 1,
-      "nome": "Retrovisor",
-      "tipo": "Carroceria"
-    },
-    {
-      "id": 2,
-      "nome": "Calota",
-      "tipo": "Carroceria"
-    },
-    {
       "id": 3,
       "nome": "Volante",
       "tipo": "Controle"
@@ -28,7 +18,7 @@
     {
       "id": 6,
       "nome": "Airbag",
-      "tipo": "Essencial"
+      "tipo": "Segurança"
     },
     {
       "id": 7,
