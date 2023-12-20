@@ -3,42 +3,118 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interação com APIs | Update com PUT</title>
+    <title>Interação com APIs | CRUD</title>
 </head>
 <body>
-    <h1>Update com PUT</h1>
+    <h1>CRUD Produtos</h1>
     <a href="./index.html">← Home</a>
 
-    <form action="" method="post">
+    <div id="modalCadastro">
 
-        <div class="controle-form">
-            <label for="idProduto">ID do produto:</label>
-            <input type="number" id="idProduto" name="idProduto" min="1" required>
-        </div>
+        <h3>Formulário de Cadastro</h3>
 
-        <div class="controle-form">
-            <label for="nomeProduto">Nome:</label>
-            <input type="text" id="nomeProduto" name="nomeProduto" required>
-        </div>
+        <!-- Formulário de Cadastro  -->
+        <form action="" method="post">
+
+            <div class="controle-form">
+                <label for="idProduto">ID do produto:</label>
+                <input type="number" id="idProduto" name="idProduto" min="1" disabled>
+            </div>
+    
+            <div class="controle-form">
+                <label for="nomeProduto">Nome:</label>
+                <input type="text" id="nomeProduto" name="nomeProduto">
+            </div>
+            
+            <div class="controle-form">
+                <label for="tipoProduto">Tipo de produto:</label>
+                <select name="tipoProduto" id="tipoProduto">
+                    <option value="Carroceria">Carroceria</option>
+                    <option value="Controle">Controle</option>
+                    <option value="Opcional" selected>Opcional</option>
+                </select>
+            </div>
+            <button type="button" id="cadastrar">Cadastrar</button>
         
-        <div class="controle-form">
-            <label for="tipoProduto">Tipo de produto:</label>
-            <select name="tipoProduto" id="tipoProduto">
-                <option value="Carroceria">Carroceria</option>
-                <option value="Controle">Controle</option>
-                <option value="Segurança">Segurança</option>
-                <option value="PowerTrain">PowerTrain</option>
-                <option value="Opcional" selected>Opcional</option>
-            </select>
-        </div>
-        <button type="button" id="atualizar">Atualizar</button>
-    </form>
+        </form>
+    </div>
+
+    <div id="modalAtualizacao">
+        
+        <h3>Formulário de Atualização</h3>
+
+        <!-- Formulário de Atualização  -->
+        <form action="" method="post">
+    
+            <div class="controle-form">
+                <label for="idProduto">ID do produto:</label>
+                <input type="number" id="idProduto" name="idProduto" min="1" required>
+            </div>
+    
+            <div class="controle-form">
+                <label for="nomeProduto">Nome:</label>
+                <input type="text" id="nomeProduto" name="nomeProduto" required>
+            </div>
+            
+            <div class="controle-form">
+                <label for="tipoProduto">Tipo de produto:</label>
+                <select name="tipoProduto" id="tipoProduto">
+                    <option value="Carroceria">Carroceria</option>
+                    <option value="Controle">Controle</option>
+                    <option value="Segurança">Segurança</option>
+                    <option value="PowerTrain">PowerTrain</option>
+                    <option value="Opcional" selected>Opcional</option>
+                </select>
+            </div>
+            <button type="button" id="atualizar">Atualizar</button>
+        </form>
+    </div>
+
+    <div id="overlay"></div>
+
+    <style>
+        #overlay {
+            position:absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: #0008;
+            z-index: 1;
+        }
+    </style>
 
     <div id="produtos"></div>
 
     <script>
 
         buscarProdutos();
+
+        document.querySelector("#cadastrar").addEventListener("click", () => {
+            
+            const dadosProduto = {
+                "id": null,
+                "nome": document.querySelector("#nomeProduto").value,
+                "tipo": document.querySelector("#tipoProduto").value
+
+            }
+            
+            fetch("http://[::1]:3000/produtos", {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify(dadosProduto)
+            }).then(resposta => {
+                if(resposta.ok) {
+                    window.alert("Produto cadastrado!");
+                    buscarProdutos();
+
+                } else {
+                    window.alert("Erro!");
+                }
+            })
+        })
 
         document.querySelector("#atualizar").addEventListener("click", () => {
             
